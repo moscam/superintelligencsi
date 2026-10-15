@@ -26,17 +26,16 @@
   </main>
 
   <!-- GoatCounter: replace MYCODE with your GoatCounter site code -->
-  <script data-goatcounter="https://superintelligencsi.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
   <script>
-    // count.js loads async, so wait for it before drawing the visible counter.
-    (function waitForGoat(tries) {
-      if (window.goatcounter && window.goatcounter.visit_count) {
-        window.goatcounter.visit_count({ append: '#counter' });
-      } else if (tries < 50) {
-        setTimeout(function () { waitForGoat(tries + 1); }, 100);
-      }
-    })(0);
-  </script>
+    var t = setInterval(function() {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            window.goatcounter.visit_count({append: '#counter'})
+        }
+    }, 100)
+</script>
+<script data-goatcounter="https://superintelligencsi.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
